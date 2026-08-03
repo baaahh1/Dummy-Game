@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://drfowa301w48q" path="res://scenes/main_room/main_game.gd" id="1_cwqi1"]
 [ext_resource type="Script" uid="uid://demydplk6cjin" path="res://scenes/main_room/multiplayer_spawner.gd" id="1_dgpx4"]
-[ext_resource type="PackedScene" uid="uid://bycqqn40d3ngn" path="res://entities/player/player.tscn" id="2_cwqi1"]
+[ext_resource type="PackedScene" uid="uid://c2iby87qh8d8l" path="res://entities/player/player.tscn" id="2_cwqi1"]
 [ext_resource type="Script" uid="uid://bd8y0ybfvc53i" path="res://scenes/main_room/task_list.gd" id="4_07wv4"]
 
 [node name="MainGame" type="Node2D" unique_id=1745043348]
 script = ExtResource("1_cwqi1")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1179994567]
-_spawnable_scenes = PackedStringArray("uid://bycqqn40d3ngn")
+_spawnable_scenes = PackedStringArray("uid://c2iby87qh8d8l")
 spawn_path = NodePath("../World/PlayerContainer")
 script = ExtResource("1_dgpx4")
 network_player = ExtResource("2_cwqi1")
