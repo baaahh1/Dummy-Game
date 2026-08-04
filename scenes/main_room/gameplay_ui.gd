@@ -1,7 +1,7 @@
-# scenes/ui/task_list/task_list.gd
 extends CanvasLayer
 
 @onready var task_label: RichTextLabel = $TaskContainer/RichTextLabel
+@onready var role_label: Label = $RoleLabel
 
 func _ready() -> void:
 	task_label.bbcode_enabled = true
@@ -10,6 +10,17 @@ func _ready() -> void:
 
 func _refresh() -> void:
 	var peer_id := multiplayer.get_unique_id()
+	
+	# Role handle
+	var is_impostor: bool = PlayerManager.get_role(peer_id)
+	if is_impostor:
+		role_label.text = "ROLE: IMPOSTOR"
+		role_label.modulate = Color.RED
+	else:
+		role_label.text = "ROLE: CREWMATE"
+		role_label.modulate = Color.CYAN
+	
+	# Tasks handle
 	var task_ids: Array = PlayerManager.get_assigned_tasks(peer_id)
 	var done_ids: Array = PlayerManager.get_done_tasks(peer_id)
 	print("Refreshing task list, ids: ", task_ids)
@@ -20,15 +31,15 @@ func _refresh() -> void:
 		if not task_info:
 			push_warning("[TaskList] No TaskResource found for id: " + str(id))
 			continue
-
+		
 		var label: String = task_info.room
 		if not task_info.task_name.is_empty():
 			label = task_info.task_name
-
+		
 		if id in done_ids:
 			text += "[color=green]%s ✓[/color]\n" % label
 		else:
 			text += "%s\n" % label
-
+	
 	task_label.text = text
 	print("[TaskList] Set text on node: ", task_label.get_path(), " -> '", task_label.text, "'")

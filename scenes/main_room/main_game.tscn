@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://drfowa301w48q" path="res://scenes/main_room/main_game.gd" id="1_cwqi1"]
 [ext_resource type="Script" uid="uid://demydplk6cjin" path="res://scenes/main_room/multiplayer_spawner.gd" id="1_dgpx4"]
 [ext_resource type="PackedScene" uid="uid://c2iby87qh8d8l" path="res://entities/player/player.tscn" id="2_cwqi1"]
-[ext_resource type="Script" uid="uid://bd8y0ybfvc53i" path="res://scenes/main_room/task_list.gd" id="4_07wv4"]
+[ext_resource type="Script" uid="uid://bd8y0ybfvc53i" path="res://scenes/main_room/gameplay_ui.gd" id="4_07wv4"]
 
 [node name="MainGame" type="Node2D" unique_id=1745043348]
 script = ExtResource("1_cwqi1")
@@ -82,3 +82,11 @@ title = "Tasks List"
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/GameplayUI/TaskContainer" unique_id=1871277472]
 layout_mode = 2
 bbcode_enabled = true
+
+[node name="RoleLabel" type="Label" parent="UI/GameplayUI" unique_id=711312311]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
